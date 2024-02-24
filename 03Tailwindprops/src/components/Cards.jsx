@@ -3,7 +3,7 @@ import React from "react";
 function Cards({username = "MA", post = "Not assigned"}) {
 
   return (
-    <figure className="md:flex bg-slate-100 rounded-xl p-8 m-2 md:p-0 dark:bg-slate-800">
+    <div className="md:flex bg-slate-100 rounded-xl p-8 m-2 md:p-0 dark:bg-slate-800">
       <img
         className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
         src="https://images.pexels.com/photos/15997337/pexels-photo-15997337/free-photo-of-bicycle-under-building-wall-with-painted-pixel-eyes.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -24,7 +24,7 @@ function Cards({username = "MA", post = "Not assigned"}) {
           <div className="text-slate-700 dark:text-slate-500">{post}</div>
         </figcaption>
       </div>
-    </figure>
+    </div>
   );
 }
 
