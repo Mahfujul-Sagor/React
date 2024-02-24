@@ -4,6 +4,6 @@
 
 @layer components {
     .button {
-        @apply outline-none px-5 py-2 rounded-full text-black shadow-lg;
+        @apply outline-none px-5 py-2 text-[1.1rem] font-semibold rounded-full text-black shadow-lg;
     }
 }

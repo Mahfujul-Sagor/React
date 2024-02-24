@@ -19,7 +19,7 @@ function App() {
       style={{ backgroundColor: color }}
     >
       <div className="px-2 fixed bottom-16 flex flex-wrap justify-center inset-x-0">
-        <div className="flex justify-center flex-wrap gap-3 shadow-lg font-semibold bg-zinc-300 p-2 rounded-3xl">
+        <div className="flex justify-center flex-wrap gap-3 shadow-lg bg-zinc-300 p-2 rounded-3xl">
           <button
             onClick={() => setColor("red")}
             className="button bg-red-400"
