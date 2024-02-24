@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button {
+        @apply outline-none px-5 py-2 rounded-full text-black shadow-lg;
+    }
+}
