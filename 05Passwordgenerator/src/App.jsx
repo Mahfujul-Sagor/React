@@ -3,10 +3,10 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <div className='h-screen bg-zinc-400'>
+    <div className='h-screen bg-zinc-800 text-white'>
       <h1>hello world</h1>
     </div>
   )
