@@ -4,9 +4,9 @@ import useCurrencyInfo from './Hooks/useCurrrencyInfo';
 
 function App() {
   const [amount, setAmount] = useState();
+  const [convertedAmount, setConvertedAmount] = useState(0);
   const [from, setFrom] = useState('usd');
   const [to, setTo] = useState('bdt');
-  const [convertedAmount, setConvertedAmount] = useState(0);
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
@@ -18,8 +18,8 @@ function App() {
   const swap = () => {
     setFrom(to);
     setTo(from);
-    setConvertedAmount(amount);
     setAmount(convertedAmount);
+    setConvertedAmount(amount);
   };
 
   return (
