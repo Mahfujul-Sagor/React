@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+    .board-row {
+        @apply min-h-40 bg-teal-400 flex justify-evenly;
+    }
+    .box {
+        @apply bg-blue-400;
+    }
+}
