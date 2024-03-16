@@ -1,14 +1,11 @@
-import OnChange from "./components/OnChange";
+import ColorPicker from "./components/ColorPicker";
 
 function App() {
-
-  
-
   return (
     <>
-      <OnChange />
+      <ColorPicker />
     </>
-  )
+  );
 }
 
 export default App;
