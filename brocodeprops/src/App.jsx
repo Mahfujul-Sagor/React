@@ -1,13 +1,12 @@
-import Props from './components/Props';
-import UserGreeting from './components/UserGreeting';
+import OnChange from "./components/OnChange";
 
 function App() {
 
+  
+
   return (
     <>
-      <UserGreeting isLoggedIn={false} username={'Sagor'} />
-      <Props name={'Sagor'} age={20} isStudent={true}/>
-      <Props name={'Shawn'} />
+      <OnChange />
     </>
   )
 }
