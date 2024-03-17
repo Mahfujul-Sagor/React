@@ -1,9 +1,9 @@
-import Arrayupdate from "./components/Arrayupdate";
+import ObjectUpdate from "./components/ObjectUpdate";
 
 function App() {
   return (
     <>
-      <Arrayupdate />
+      <ObjectUpdate />
     </>
   );
 }

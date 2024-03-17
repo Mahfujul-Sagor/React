@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    input {
+        @apply border-2 rounded m-1 p-1 block;
+    }
+    button {
+        @apply bg-teal-400 text-white border rounded m-1 px-2 py-1;
+    }
+    li {
+        @apply bg-teal-600 text-white font-semibold w-fit rounded m-1 px-2 py-1 cursor-pointer;
+    }
+}
