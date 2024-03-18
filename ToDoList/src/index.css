@@ -6,7 +6,13 @@
   input {
     @apply mr-2 px-2 py-1 rounded outline-none;
   }
+  li {
+    @apply bg-white rounded p-2 mb-1 flex items-center shadow-md;
+  }
   span {
-    @apply text-white rounded font-semibold bg-blue-400 px-2 py-1 my-1 mr-2;
+    @apply text-black rounded font-semibold px-2 py-1 my-1 flex-1;
+  }
+  .move-button {
+    @apply bg-blue-400 rounded py-[.125rem] px-2 ml-2;
   }
 }

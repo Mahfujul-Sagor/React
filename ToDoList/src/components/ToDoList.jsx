@@ -9,8 +9,10 @@ function ToDoList() {
   };
 
   const AddTask = () => {
-    setTasks(t => [...t, newTask]);
-    setNewTask('');
+    if (newTask.trim() !== '') {
+      setTasks((t) => [...t, newTask]);
+      setNewTask("");
+    }
   };
 
   const DeleteTask = (index) => {
@@ -18,15 +20,23 @@ function ToDoList() {
   };
 
   const moveTaskUp = (index) => {
-
+    if (index > 0) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index - 1]] = [updatedTasks[index - 1], updatedTasks[index]];
+      setTasks(updatedTasks);
+    }
   };
 
   const moveTaskDown = (index) => {
-
+    if (index < tasks.length - 1) {
+      const updatedTasks = [...tasks];
+      [updatedTasks[index], updatedTasks[index + 1]] = [updatedTasks[index + 1], updatedTasks[index]];
+      setTasks(updatedTasks);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-zinc-700 flex flex-col gap-4 justify-center items-center">
+    <div className="min-h-screen bg-[#005F73] flex flex-col gap-4 justify-center items-center">
       <h1 className="text-white text-2xl font-semibold">To Do List</h1>
 
       <div>
@@ -48,11 +58,21 @@ function ToDoList() {
         {tasks.map((task, index) => (
           <li key={index}>
             <span>{task}</span>
-            <button className="bg-red-400 text-sm text-white px-2 py-1 font-semibold rounded" onClick={()=> DeleteTask(index)}>Delete</button>
+            <button
+              className="bg-red-400 text-sm text-white px-2 py-1 font-semibold rounded"
+              onClick={() => DeleteTask(index)}
+            >
+              Delete
+            </button>
+            <button className="move-button" onClick={() => moveTaskUp(index)}>
+              👆
+            </button>
+            <button className="move-button" onClick={() => moveTaskDown(index)}>
+              👇
+            </button>
           </li>
         ))}
       </ol>
-      
     </div>
   );
 }
