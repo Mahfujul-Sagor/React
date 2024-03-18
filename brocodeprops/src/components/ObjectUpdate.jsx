@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function ObjectUpdate() {
 
@@ -43,13 +43,13 @@ function ObjectUpdate() {
             <h1 className="text-2xl font-semibold mb-4">List of car objects</h1>
 
             <ul>
-                {cars.map((car, index) => (
+                {cars.map((car, index) => 
                     <li key={index} onClick={() => handleRemoveCar(index)}>
                         {car.year}&nbsp;
                         {car.make}&nbsp;
                         {car.model}
                     </li>
-                ))}
+                )}
             </ul>
 
             <input type="number" value={carYear} onChange={handleYearChange} />
