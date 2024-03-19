@@ -25,10 +25,10 @@ function MyComponent() {
     };
 
   return (
-    <div>
+    <>
         <p>width: {width}px</p>
         <p>height: {height}px</p>
-    </div>
+    </>
   );
 }
 
