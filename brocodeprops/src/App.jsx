@@ -1,9 +1,9 @@
-import ObjectUpdate from "./components/ObjectUpdate";
+import MyComponent from "./components/MyComponent";
 
 function App() {
   return (
     <>
-      <ObjectUpdate />
+      <MyComponent />
     </>
   );
 }
