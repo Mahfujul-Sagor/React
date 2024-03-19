@@ -1,12 +1,11 @@
 import { useState } from 'react';
+import StopWatch from './components/StopWatch';
 
 function App() {
 
   return (
     <>
-      <div>
-        hello world!
-      </div>
+      <StopWatch/>
     </>
   )
 }
