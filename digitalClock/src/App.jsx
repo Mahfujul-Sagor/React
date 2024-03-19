@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import DigitalClock from './components/DigitalClock';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      hello world
+      <DigitalClock />
     </>
-  )
+  );
 }
 
 export default App;
