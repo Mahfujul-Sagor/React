@@ -30,7 +30,7 @@ export default function Header() {
                         className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <ul className="flex mt-4 font-medium md:flex-col md:space-x-8 md:mt-0">
                             <li>
                                 <NavLink
                                     to={"/Home"}
