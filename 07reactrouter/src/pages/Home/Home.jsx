@@ -47,9 +47,9 @@ export default function Home() {
                 />
             </div>
 
-            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">
+            <h2 className="text-center text-2xl sm:text-5xl py-10 font-medium">
                 Lorem Ipsum Yojo
-            </h1>
+            </h2>
         </div>
     );
 }
