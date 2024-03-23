@@ -1,5 +1,4 @@
 import Sidebar from './components/Sidebar/Sidebar';
-import Footer from '.components/Footer/Footer';
 import {Outlet} from 'react-router-dom';
 
 
@@ -9,7 +8,6 @@ function App() {
     <>
       <Sidebar />
       <Outlet />
-      <Footer />
     </>
   )
 }
