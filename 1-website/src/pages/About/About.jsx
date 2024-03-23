@@ -1,7 +1,7 @@
 
 function About() {
   return (
-    <div className="bg-zinc-100">
+    <div className="bg-zinc-100 p-5">
       <h1 className="text-2xl text-center font-semibold">
         You Are Currently In The About Section
       </h1>

@@ -16,6 +16,14 @@ function Header() {
           className={({ isActive }) => {
             return isActive ? "text-zinc-600" : "";
           }}
+          to="/profileCard"
+        >
+          Profile Card
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "text-zinc-600" : "";
+          }}
           to="/about"
         >
           About
