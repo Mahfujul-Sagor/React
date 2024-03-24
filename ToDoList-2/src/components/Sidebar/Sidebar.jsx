@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import logo from "../../assets/logo.png";
+import Home from "../../pages/Home/Home";
+
+const getLocalData = ()=> {
+
+  let storedData = localStorage.getItem('task');
+
+  if (storedData) {
+    return JSON.parse(storedData);
+  }else {
+    return [];
+  }
+};
 
 function Sidebar() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(getLocalData());
   const [newTask, setNewTask] = useState("");
 
   const handleInputChange = (e) => {
@@ -11,9 +24,9 @@ function Sidebar() {
   };
 
   const addTask = () => {
-    if (newTask.trim() !== "") {
+    if (newTask.trim() !== '') {
       setTasks((t) => [...t, newTask]);
-      setNewTask("");
+      setNewTask('');
     }
   };
 
@@ -43,15 +56,21 @@ function Sidebar() {
     }
   };
 
+  // add tasks to the local storage
+  useEffect(() => {
+    localStorage.setItem('task', JSON.stringify(tasks));
+  },[tasks]);
+
+
+
   return (
     // Sidebar
     <div className="flex gap-2/3">
+
       <div className="bg-gray-700 text-white w-[15rem] min-h-screen p-4 flex flex-col items-center justify-between">
         <div className="flex gap-2 items-center">
           <img src={logo} alt="Logo" width="50px" />
-          <h1 className="text-2xl font-bold max-sm:hidden">
-            ToDoList
-          </h1>
+          <h1 className="text-2xl font-bold max-sm:hidden">ToDoList</h1>
         </div>
 
         <div className="flex flex-col gap-1">
@@ -73,39 +92,60 @@ function Sidebar() {
         <Footer />
       </div>
 
-    {/* Tasks */}
-      <div className="w-full px-2">
-        <ol>
-          {tasks.map((task, index) => (
-            <li
-              key={index}
-              className="bg-[#EFF6E0] font-semibold p-4 my-2 rounded shadow-lg outline flex justify-between items-center max-sm:flex-col"
-            >
-              <span className="m-2 text-center">{task}</span>
-              <div className="flex justify-center items-center gap-4">
-                <button
-                  onClick={() => deleteTask(index)}
-                  className="bg-red-500 px-2 py-1 rounded text-white shadow-lg hover:bg-red-700"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() => moveTaskUp(index)}
-                  className="bg-blue-500 rounded px-2 py-1 shadow-lg hover:bg-blue-700"
-                >
-                  👆
-                </button>
-                <button
-                  onClick={() => moveTaskDown(index)}
-                  className="bg-blue-500 rounded px-2 py-1 shadow-lg hover:bg-blue-700"
-                >
-                  👇
-                </button>
-              </div>
-            </li>
-          ))}
-        </ol>
+      {/* Tasks */}
+      <div className="w-full bg-zinc-200">
+        <nav className="bg-teal-400 p-1 text-white font-semibold flex justify-center items-center gap-4 drop-shadow-lg">
+          <NavLink
+            to="/"
+            className={({ isActive }) => {
+              return isActive ? "text-[#3A506B]" : "";
+            }}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => {
+              return isActive ? "text-[#3A506B]" : "";
+            }}
+          >
+            About
+          </NavLink>
+        </nav>
+        <Home>
+          <ol>
+            {tasks.map((task, index) => (
+              <li
+                key={index}
+                className="bg-[#EFF6E0] font-semibold p-4 my-2 rounded shadow-lg outline flex justify-between items-center max-sm:flex-col"
+              >
+                <span className="m-2 text-center">{task}</span>
+                <div className="flex justify-center items-center gap-4">
+                  <button
+                    onClick={() => deleteTask(index)}
+                    className="bg-red-500 px-2 py-1 rounded text-white shadow-lg hover:bg-red-700"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => moveTaskUp(index)}
+                    className="bg-blue-500 rounded px-2 py-1 shadow-lg hover:bg-blue-700"
+                  >
+                    👆
+                  </button>
+                  <button
+                    onClick={() => moveTaskDown(index)}
+                    className="bg-blue-500 rounded px-2 py-1 shadow-lg hover:bg-blue-700"
+                  >
+                    👇
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Home>
       </div>
+      
     </div>
   );
 }
