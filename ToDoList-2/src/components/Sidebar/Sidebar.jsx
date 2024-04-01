@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import logo from "../../assets/logo.png";
@@ -16,17 +16,28 @@ const getLocalData = ()=> {
 };
 
 function Sidebar() {
+// using useRef hook instead
+  const taskRef = useRef();
+
   const [tasks, setTasks] = useState(getLocalData());
-  const [newTask, setNewTask] = useState("");
 
-  const handleInputChange = (e) => {
-    setNewTask(e.target.value);
-  };
+  // const [newTask, setNewTask] = useState("");
 
-  const addTask = () => {
-    if (newTask.trim() !== '') {
-      setTasks((t) => [...t, newTask]);
-      setNewTask('');
+  // const handleInputChange = (e) => {
+  //   setNewTask(e.target.value);
+  // };
+
+  const addTask = (e) => {
+    // if (newTask.trim() !== '') {
+    //   setTasks((t) => [...t, newTask]);
+    //   setNewTask('');
+    // }
+    e.preventDefault();
+    // using useRef hook instead
+    if (taskRef.current.value !== "") {
+      const newTask = taskRef.current.value;
+      taskRef.current.value = '';
+      setTasks((t)=> [...t, newTask]);
     }
   };
 
@@ -56,6 +67,7 @@ function Sidebar() {
     }
   };
 
+
   // add tasks to the local storage
   useEffect(() => {
     localStorage.setItem('task', JSON.stringify(tasks));
@@ -73,21 +85,23 @@ function Sidebar() {
           <h1 className="text-2xl font-bold max-sm:hidden">ToDoList</h1>
         </div>
 
-        <div className="flex flex-col gap-1">
+        <form onSubmit={addTask} className="flex flex-col gap-1">
           <input
+            ref={taskRef}
             type="text"
-            value={newTask}
-            onChange={handleInputChange}
+            // value={newTask}
+            // onChange={handleInputChange}
             className="w-full bg-gray-500 rounded outline-none px-2 py-1"
             placeholder="Enter your task"
           />
           <button
-            onClick={addTask}
+            type="submit"
+            // onClick={addTask}
             className="w-full bg-teal-500 font-semibold px-2 py-1 rounded"
           >
             Add
           </button>
-        </div>
+        </form>
 
         <Footer />
       </div>
